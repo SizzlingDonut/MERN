@@ -11,6 +11,13 @@ app.get('/', (req, res)=>{
 
 app.use('/user', router)
 
+app.post('/users', (req, res) => {
+    const {name, email} = req.body
+    res.json({
+        message:`User ${name} with email ${email} created successfully`
+    })
+})
+
 app.listen(PORT, ()=>{
     console.log(`Server is running on http://localhost:${PORT}`)
 })
